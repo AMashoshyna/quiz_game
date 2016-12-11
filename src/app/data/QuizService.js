@@ -26,7 +26,9 @@
 			return $http.get(apiPath)
 			.then((response) => {
 				service.currentQuestion.detail = response.data[0];
-				service.currentQuestion.shuffledAnswer = shuffleAnswer(service.currentQuestion.detail.answer);
+				service.currentQuestion.shuffledAnswer = 
+				shuffleAnswer(service.currentQuestion.detail.answer);
+				console.log(service.currentQuestion.detail.answer)
 			})
 		};
 
