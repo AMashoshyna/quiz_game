@@ -1,4 +1,5 @@
 (function() {
 	'use strict';
-	angular.module('App', []);
+	angular.module('App', [])
+	.constant('apiPath', '//jservice.io/api/random');
 })();
