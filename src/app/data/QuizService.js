@@ -14,6 +14,9 @@ QuizService.$inject = ['$http', 'apiPath'];
 		service.checkAnswer = checkAnswer;
 		service.acceptAnswer = true;
 
+		service.getNewQuestion();
+
+
 		function checkAnswer(answer) {
 			if(answer.toLowerCase()!== service.currentQuestion.answer) {
 				service.acceptAnswer = false;
@@ -23,7 +26,7 @@ QuizService.$inject = ['$http', 'apiPath'];
 		function getNewQuestion() {
 			return $http.get(apiPath)
 			.then((response) => {
-				service.currentQuestion = response.data[0];
+				service.currentQuestion.detail = response.data[0];
 				console.log(service.currentQuestion);
 			})
 		};

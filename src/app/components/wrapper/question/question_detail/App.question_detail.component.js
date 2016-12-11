@@ -9,11 +9,9 @@
 	questionDetailController.$inject= ['QuizService'];
 	function questionDetailController(QuizService) {
 		var ctrl = this;
-		QuizService.getNewQuestion().then(function(){
-			
 		ctrl.currentQuestion = QuizService.currentQuestion;
-		console.log(ctrl.currentQuestion);
-		});
-
+		ctrl.getNewQuestion = function() {
+			QuizService.getNewQuestion();
+		}
 	}
 })();
