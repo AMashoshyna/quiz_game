@@ -14,14 +14,18 @@ QuizService.$inject = ['$http', 'apiPath'];
 		service.checkAnswer = checkAnswer;
 		service.acceptAnswer = true;
 
-
 		function checkAnswer(answer) {
-
+			if(answer.toLowerCase()!== service.currentQuestion.answer) {
+				service.acceptAnswer = false;
+			}
 		};
 
 		function getNewQuestion() {
-
+			return $http.get(apiPath)
+			.then((response) => {
+				service.currentQuestion = response.data[0];
+				console.log(service.currentQuestion);
+			})
 		};
-
 	}
 })();
